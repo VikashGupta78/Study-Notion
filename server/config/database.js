@@ -1,24 +1,15 @@
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-const mongoose = require('mongoose');
-
-require('dotenv').config();
-
-// Replace 'your_mongodb_url' with your actual MongoDB connection string
-const dbConnect = () => {
-    // Connect to MongoDB
+exports.connect = () => {
     mongoose.connect(process.env.MONGODB_URL, {
         useNewUrlParser: true,
-        useUnifiedTopology: true,
-        family: 4, // Force IPv4
+        useUnifiedTopology:true,
     })
-    .then(() => console.log('Connected to MongoDB!'))
-    .catch((error) => { 
-        console.log('Issue in Db connection');
-        console.error(error.message);
+    .then(() => console.log("DB Connected Successfully"))
+    .catch( (error) => {
+        console.log("DB Connection Failed");
+        console.error(error);
         process.exit(1);
-    })
-
-}
-
-module.exports = dbConnect;
-
+    } )
+};
