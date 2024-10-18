@@ -1,7 +1,16 @@
 const nodemailer = require("nodemailer");
 
 const mailSender = async (email, title, body) => {
+    
+  
+    
+    
     try {
+
+        console.log(process.env.MAIL_USER)
+        console.log(process.env.MAIL_PASS)
+        console.log(process.env.MAIL_HOST)
+        console.log(email, title, body)
         let transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
             port: 587, // Use port 587 for TLS

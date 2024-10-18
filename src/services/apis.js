@@ -1,3 +1,5 @@
+// require("dotenv").config();
+
 const BASE_URL = "https://localhost:4000/api/v1"
 
 // AUTH ENDPOINTS
